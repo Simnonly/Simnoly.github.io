@@ -6,17 +6,18 @@
   <meta name="keywords" content>
   <meta name="description" content="唯一">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="前端语言1. HTML Hyper Text Markup Language 超文本标记语言(不是编程语言) 2. CSS Cascading Style Sheets 层叠样式表,用来美化,排版html页面 3. Javascript 前端脚本编程语言 4. Jquery Javascript库,对JavaScript的封装双标签和单标签    双标签语法:     &amp;lt;标签名 属性=&amp;qu">
+<meta name="keywords" content="html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello word">
-<meta property="og:url" content="http://yoursite.com/2019/07/27/hello-world/index.html">
+<meta property="og:title" content="Web前端day01">
+<meta property="og:url" content="http://yoursite.com/2019/07/29/web前端day01/index.html">
 <meta property="og:site_name" content="唯一">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="前端语言1. HTML Hyper Text Markup Language 超文本标记语言(不是编程语言) 2. CSS Cascading Style Sheets 层叠样式表,用来美化,排版html页面 3. Javascript 前端脚本编程语言 4. Jquery Javascript库,对JavaScript的封装双标签和单标签    双标签语法:     &amp;lt;标签名 属性=&amp;qu">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-29T01:53:39.477Z">
+<meta property="og:updated_time" content="2019-07-29T04:49:27.675Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello word">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Web前端day01">
+<meta name="twitter:description" content="前端语言1. HTML Hyper Text Markup Language 超文本标记语言(不是编程语言) 2. CSS Cascading Style Sheets 层叠样式表,用来美化,排版html页面 3. Javascript 前端脚本编程语言 4. Jquery Javascript库,对JavaScript的封装双标签和单标签    双标签语法:     &amp;lt;标签名 属性=&amp;qu">
 
 
 <link rel="icon" href="/img/chatpict.jpg">
@@ -209,7 +210,15 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(1)</small></div></li>
+    <li><div class="all active">全部文章<small>(2)</small></div></li>
+    
+        
+            
+            <li><div data-rel="web前端">web前端<small>(1)</small></div>
+                
+            </li>
+            
+        
     
 </ul>
 <div class="left-bottom">
@@ -227,7 +236,7 @@
     </div>
     <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="1">
+<input type="hidden" id="yelog_site_posts_number" value="2">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -261,6 +270,10 @@
     </form>
     <div class="tags-list">
     
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">html</a>
+    </li>
+    
     <div class="clearfix"></div>
 </div>
 
@@ -273,6 +286,14 @@
            data-author="" >
             <span class="post-title" title="Hello word">Hello word</span>
             <span class="post-date" title="2019-07-27 20:24:54">2019/07/27</span>
+        </a>
+        
+        <a  class="web前端 "
+           href="/2019/07/29/web前端day01/"
+           data-tag="html"
+           data-author="" >
+            <span class="post-title" title="Web前端day01">Web前端day01</span>
+            <span class="post-date" title="2019-07-29 12:34:18">2019/07/29</span>
         </a>
         
     </nav>
@@ -379,7 +400,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': [],
+            'data': ['#html',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
