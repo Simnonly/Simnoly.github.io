@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Web前端day01 | 唯一</title>
-  <meta name="keywords" content=" html ">
-  <meta name="description" content="Web前端day01 | 唯一">
+  <title>数据库day01 | 唯一</title>
+  <meta name="keywords" content=" orcl ">
+  <meta name="description" content="数据库day01 | 唯一">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="前端语言1. HTML Hyper Text Markup Language 超文本标记语言(不是编程语言) 2. CSS Cascading Style Sheets 层叠样式表,用来美化,排版html页面 3. Javascript 前端脚本编程语言 4. Jquery Javascript库,对JavaScript的封装双标签和单标签    双标签语法:     &amp;lt;标签名 属性=&amp;qu">
 <meta name="keywords" content="html">
@@ -326,9 +326,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-web前端day01" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-数据库day01" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Web前端day01</h1>
+        <h1 class="article-title">数据库day01</h1>
     
     <div class="article-meta">
         
@@ -336,21 +336,21 @@
         
         <span class="book">
             
-                <a href="javascript:" data-rel="web前端">web前端</a>
+                <a href="javascript:" data-rel="数据库">数据库</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a href="javascript:" class="color5">html</a>
+            <a href="javascript:" class="color5">orcl</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-07-29 12:49:27'>2019-07-29 12:34</time>
+        创建时间:<time class="date" title='更新时间: 2019-07-29 22:25:00'>2019-07-29 22:24</time>
         
     </div>
     <div class="article-meta">
@@ -372,7 +372,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端语言"><span class="toc-text">前端语言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#双标签和单标签"><span class="toc-text">双标签和单标签</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#路径问题"><span class="toc-text">路径问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#行内元素和块级元素"><span class="toc-text">行内元素和块级元素</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#行内元素和块级元素之间的切换-使用display属性"><span class="toc-text">行内元素和块级元素之间的切换,使用display属性</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vmvare安装"><span class="toc-text">Vmvare安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库概念"><span class="toc-text">数据库概念</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -387,58 +387,68 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前端语言"><a href="#前端语言" class="headerlink" title="前端语言"></a>前端语言</h1><pre><code>1. HTML
-Hyper Text Markup Language 超文本标记语言(不是编程语言)
-2. CSS
-Cascading Style Sheets 层叠样式表,用来美化,排版html页面
-3. Javascript
-前端脚本编程语言
-4. Jquery
-Javascript库,对JavaScript的封装</code></pre><h1 id="双标签和单标签"><a href="#双标签和单标签" class="headerlink" title="双标签和单标签"></a>双标签和单标签</h1><pre><code>    双标签语法:
-    &lt;标签名 属性=&quot;值&quot;&gt;内容&lt;/标签名&gt;
-    1. 有开始,有结束,结束的里面有/
-    2. 中间放内容
-    3. 开始标签里面,在标签名后面写属性和值
-例:
-&lt;a href=&quot;http://www.iqiyi.com&quot;&gt;爱奇艺&lt;/a&gt;
+        <h1 id="Vmvare安装"><a href="#Vmvare安装" class="headerlink" title="Vmvare安装"></a>Vmvare安装</h1><pre><code>安装教程链接：https://www.jianshu.com/p/552179808ebf
+安装windowsServer2003虚拟机
+安装教程链接：https://jingyan.baidu.com/article/9989c746d4f914f648ecfe2f.html
+安装Vmvare Tools
+目的是为了可以从宿主机中拉文件到虚拟机中
+安装Oracle11g 数据库服务
+安装教程链接：https://blog.51cto.com/mcmvp/1028469</code></pre><h1 id="数据库概念"><a href="#数据库概念" class="headerlink" title="数据库概念"></a>数据库概念</h1><pre><code>1. 传统存储数据的方式
+    1. 用大脑记，容易忘
+    2. 用笔和纸记，麻烦，查起来困难
+2. 如何解决
+使用数据库记录数据，存储方便，查询方便
+3. 概念
+        1. 数据
+        2. 现实世界中一切可以被字符和数字描述的事物都可以称为数据
+        3. 关系型数据
+               数据有描述，数据与数据之间有关系
+        4. 二维数据表
+               由数据行和数据列组成的表格称为二维数据表
+        5. 关系型数据库
+               存储二维数据表的仓库，Oracle安装后自带一个名字叫orcl的数据库
+        6. 数据库服务
+               我们执行的setup.exe程序就是安装数据库服务的,可以在我的电脑--&gt;管理--&gt;服务里面查询相关的服务信息
+               其中最重要的两个服务：
+                    1. OracleServiceORCL  这个是orcl数据库的服务
+                2. OracleOraDb11g_home_1TNSListener   这个是数据库监听服务,它负责设置数据库监听的IP和端口,它不影响本地数据库连接
+        7. 数据库客户端
+            使用win+r键输入cmd打开一个黑窗口,这里可以使用命令连接和操作数据库
+        8. 数据库图形化管理工具
+            就是Sql Developer这个工具,这是Oracle公司自己开发的免费工具,还有其他的第三方工具,如PL/SQL Developer
+                解压SqlDeveloper之后,打开,将里面的sqldeveloper.exe程序发送到桌面快捷方式,由于这个工具是用Java开发的,所有需要配置Java环境
+        9. 知名的数据库厂商
+                1. Oracle        oracle公司
+                2. Sql Server    微软公司
+                3. MySql         oracle公司
+                4. DB2           IBM公司
 
-    单标签语法:
-    &lt;标签名 属性=&quot;值&quot;/&gt;
-    1. 只有一个结束标签,在后面写/
-    2. 没有内容,只有属性
+        10. 软件架构体系
+                B/S   Browser/Server 浏览器服务器架构
+                C/S   Client/Server  客户端服务器架构
+                Oracle采用的是C/S模式
+        11. 用户账户介绍
+                    1. Sys      超级管理员  密码123456
+                 2. System   管理员      密码123456
+                 3. 普通用户(scott是普通用户中的一个)
+            scott用户默认是被锁定的,且密码以及过期了
+           在安装的时候可以解锁和修改密码
+            在dos里面使用 sqlplus scott/tiger 回车
+            出现SQL&gt;_   说明scott用户可以使用
+            如果在安装的时候未解锁:
+            1. 使用 sqlplus / as sysdba 登录
+            2. alter user scott account unlock; 解锁
+            3. alter user scott identified by tiger; 重置密码为tiger
+     12. SqlPlus客户端本地连接(客户端和服务在同一个操作系统中)
+    sqlplus 用户名/密码
+     13. SqlPlus客户端远程连接(客户端和服务不在同一个操作系统中)
+    在虚拟机中的dos里面输入ipconfig 查看虚拟机的ip地址
+    IP Address 后面的 192.168.58.128就是虚拟机ip地址
+    在本机的dos里面输入
+    sqlplus scott/tiger@//192.168.58.128:1521/orcl
+   14. 图形化工具本地连接
 
-    例:
-    &lt;img src=&quot;img/img0.jpg&quot; width=&quot;200&quot;/&gt;</code></pre><h1 id="路径问题"><a href="#路径问题" class="headerlink" title="路径问题"></a>路径问题</h1><pre><code>  1. 相对路径
-     目标文件相对于当前文件的路径
-例:
-  比如当前文件是index.html
-  在这个文件中写入一个&lt;img src=&quot;img/img0.jpg&quot;/&gt;
-  2. 绝对路径
-目标文件的完整路径,不需要考虑上一级或下一级的问题</code></pre><h1 id="行内元素和块级元素"><a href="#行内元素和块级元素" class="headerlink" title="行内元素和块级元素"></a>行内元素和块级元素</h1><pre><code>    1. 行内元素
-可以和前后的其他行内元素共处在一行之内,当一行容不下的时候,会自动换行
-代表有:
-    1. a
-    2. img
-    3. span
-    4. strong
-    5. em
-2. 块级元素
-必须独占父元素的一行,内容不够一行也要占一行
-代表有:
-    1. div
-    2. p
-    3. h1-h6
-    4. ul
-    5. li
-
-！注意:行内元素不具有宽和高的属性,块级元素具有宽和高的属性</code></pre><h1 id="行内元素和块级元素之间的切换-使用display属性"><a href="#行内元素和块级元素之间的切换-使用display属性" class="headerlink" title="行内元素和块级元素之间的切换,使用display属性"></a>行内元素和块级元素之间的切换,使用display属性</h1><pre><code>1. 行内元素切换为块级元素
-加display:block
-2. 块级元素变行内元素
-加display:inline
-3. 变为行内块元素
-    1. 能满足在一行之内
-    2. 能有块元素的宽高属性
-    加display:inline-block</code></pre>
+   15. 图形化工具远程连接</code></pre>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
@@ -451,12 +461,12 @@ Javascript库,对JavaScript的封装</code></pre><h1 id="双标签和单标签">
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Web前端day01</p>
+    <p><span class="copy-title">文章标题:</span>数据库day01</p>
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="SImon">SImon</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-07-29, 12:34:18</p>
-    <p><span class="copy-title">最后更新:</span>2019-07-29, 12:49:27</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/29/web前端day01/" title="Web前端day01">http://yoursite.com/2019/07/29/web前端day01/</a>
+    <p><span class="copy-title">发布时间:</span>2019-07-29, 22:24:59</p>
+    <p><span class="copy-title">最后更新:</span>2019-07-29, 22:25:00</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/29/数据库day01/" title="数据库day01">http://yoursite.com/2019/07/29/数据库day01/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
