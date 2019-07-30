@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>数据库day01 | 唯一</title>
+  <title>数据库day02 | 唯一</title>
   <meta name="keywords" content=" orcl ">
-  <meta name="description" content="数据库day01 | 唯一">
+  <meta name="description" content="数据库day02 | 唯一">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="单表查询---查询工资在2000-3000之间的员工信息    --使用and关键字，多条件同时成立的筛选使用and关键字进行条件连接   select * from emp where sal&amp;gt;=2000 and sal&amp;lt;=3000;    --使用between ... and ...(区间查询,小的必须放前面)    select * from emp where sal bet">
 <meta name="keywords" content="orcl">
@@ -334,9 +334,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-数据库day01" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-数据库day02" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">数据库day01</h1>
+        <h1 class="article-title">数据库day02</h1>
     
     <div class="article-meta">
         
@@ -358,7 +358,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-07-29 22:25:00'>2019-07-29 22:24</time>
+        创建时间:<time class="date" title='更新时间: 2019-07-30 08:30:40'>2019-07-30 08:30</time>
         
     </div>
     <div class="article-meta">
@@ -380,7 +380,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vmvare安装"><span class="toc-text">Vmvare安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库概念"><span class="toc-text">数据库概念</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#单表查询"><span class="toc-text">单表查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#单行函数"><span class="toc-text">单行函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串函数"><span class="toc-text">字符串函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数学函数"><span class="toc-text">数学函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#日期函数"><span class="toc-text">日期函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多行函数-聚合函数-统计函数"><span class="toc-text">多行函数(聚合函数,统计函数)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#转换函数"><span class="toc-text">转换函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他函数"><span class="toc-text">其他函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分组查询和筛选"><span class="toc-text">分组查询和筛选</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库的增删改"><span class="toc-text">数据库的增删改</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据的备份"><span class="toc-text">数据的备份</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -395,68 +395,189 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Vmvare安装"><a href="#Vmvare安装" class="headerlink" title="Vmvare安装"></a>Vmvare安装</h1><pre><code>安装教程链接：https://www.jianshu.com/p/552179808ebf
-安装windowsServer2003虚拟机
-安装教程链接：https://jingyan.baidu.com/article/9989c746d4f914f648ecfe2f.html
-安装Vmvare Tools
-目的是为了可以从宿主机中拉文件到虚拟机中
-安装Oracle11g 数据库服务
-安装教程链接：https://blog.51cto.com/mcmvp/1028469</code></pre><h1 id="数据库概念"><a href="#数据库概念" class="headerlink" title="数据库概念"></a>数据库概念</h1><pre><code>1. 传统存储数据的方式
-    1. 用大脑记，容易忘
-    2. 用笔和纸记，麻烦，查起来困难
-2. 如何解决
-使用数据库记录数据，存储方便，查询方便
-3. 概念
-        1. 数据
-        2. 现实世界中一切可以被字符和数字描述的事物都可以称为数据
-        3. 关系型数据
-               数据有描述，数据与数据之间有关系
-        4. 二维数据表
-               由数据行和数据列组成的表格称为二维数据表
-        5. 关系型数据库
-               存储二维数据表的仓库，Oracle安装后自带一个名字叫orcl的数据库
-        6. 数据库服务
-               我们执行的setup.exe程序就是安装数据库服务的,可以在我的电脑--&gt;管理--&gt;服务里面查询相关的服务信息
-               其中最重要的两个服务：
-                    1. OracleServiceORCL  这个是orcl数据库的服务
-                2. OracleOraDb11g_home_1TNSListener   这个是数据库监听服务,它负责设置数据库监听的IP和端口,它不影响本地数据库连接
-        7. 数据库客户端
-            使用win+r键输入cmd打开一个黑窗口,这里可以使用命令连接和操作数据库
-        8. 数据库图形化管理工具
-            就是Sql Developer这个工具,这是Oracle公司自己开发的免费工具,还有其他的第三方工具,如PL/SQL Developer
-                解压SqlDeveloper之后,打开,将里面的sqldeveloper.exe程序发送到桌面快捷方式,由于这个工具是用Java开发的,所有需要配置Java环境
-        9. 知名的数据库厂商
-                1. Oracle        oracle公司
-                2. Sql Server    微软公司
-                3. MySql         oracle公司
-                4. DB2           IBM公司
+        <h1 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h1><pre><code>---查询工资在2000-3000之间的员工信息
+   --使用and关键字，多条件同时成立的筛选使用and关键字进行条件连接
+  select * from emp where sal&gt;=2000 and sal&lt;=3000;
+   --使用between ... and ...(区间查询,小的必须放前面)
+   select * from emp where sal between 2000 and 3000;
+--查询工作为SALESMAN,ANALYST,MANAGER的员工信息
+select * from emp where job=&apos;SALESMAN&apos; or job=&apos;ANALYST&apos; or job=&apos;MANAGER&apos;;
+--使用 in 关键字 查询
+select * from emp where job in(&apos;SALESMAN&apos;,&apos;ANALYST&apos;,&apos;MANAGER&apos;);
+--查询姓名中包含s的，以s开头的，以s结尾的，第二个字符为A的 (like模糊查询)
+-- %为通配符,可以通配任意长度的字符串
+-- _为通配符,可以通配一个长度的字符
+select * from emp where ename like &apos;%S%&apos;;
+select * from emp where ename like &apos;S%&apos;;
+select * from emp where ename like &apos;%S&apos;;
+select * from emp where ename like &apos;_A%&apos;;
 
-        10. 软件架构体系
-                B/S   Browser/Server 浏览器服务器架构
-                C/S   Client/Server  客户端服务器架构
-                Oracle采用的是C/S模式
-        11. 用户账户介绍
-                    1. Sys      超级管理员  密码123456
-                 2. System   管理员      密码123456
-                 3. 普通用户(scott是普通用户中的一个)
-            scott用户默认是被锁定的,且密码以及过期了
-           在安装的时候可以解锁和修改密码
-            在dos里面使用 sqlplus scott/tiger 回车
-            出现SQL&gt;_   说明scott用户可以使用
-            如果在安装的时候未解锁:
-            1. 使用 sqlplus / as sysdba 登录
-            2. alter user scott account unlock; 解锁
-            3. alter user scott identified by tiger; 重置密码为tiger
-     12. SqlPlus客户端本地连接(客户端和服务在同一个操作系统中)
-    sqlplus 用户名/密码
-     13. SqlPlus客户端远程连接(客户端和服务不在同一个操作系统中)
-    在虚拟机中的dos里面输入ipconfig 查看虚拟机的ip地址
-    IP Address 后面的 192.168.58.128就是虚拟机ip地址
-    在本机的dos里面输入
-    sqlplus scott/tiger@//192.168.58.128:1521/orcl
-   14. 图形化工具本地连接
+-- 查询有奖金的员工信息  (is null 和 is not null)
+select * from emp where comm is not null;</code></pre><h1 id="单行函数"><a href="#单行函数" class="headerlink" title="单行函数"></a>单行函数</h1><pre><code>-- 单行函数的使用  人家写好的函数,我们学会用就可以了</code></pre><h1 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h1><pre><code>-- 1.首字母大写  
+select initcap(ename) from emp;
+-- 2. 转换为小写
+select lower(ename) from emp;
+-- 3. 转换为大写  dual 是一个虚表, 它是用来做需虚查询
+-- &apos;hello&apos; 是一个字符串(字面量,值)  ename是一个字段名(变量,存值的)
+select upper(&apos;hello&apos;) from dual;
+-- 4. 左裁剪  l--&gt; left  trim--&gt; 裁剪
+select ltrim(&apos;xyzadams&apos;,&apos;xyz&apos;) from dual;
+-- 5. 右裁剪 
+select rtrim(&apos;adamsabc&apos;,&apos;abc&apos;) from dual;
+-- 6. 按字符翻译  j13k
+select translate(&apos;jack&apos;,&apos;abcd&apos;,1234) from dual;
+-- 7. 字符串替换
+select replace(&apos;jack and jue&apos;,&apos;j&apos;,&apos;bl&apos;) from dual;
+-- 8. 查找字符串位置  (第一次出现的位置)
+select instr(&apos;worldwide&apos;,&apos;d&apos;) from dual;
+-- 9. 截取字符串
+select substr(&apos;南邮通达学院&apos;,3,2) from dual;
+-- 10.连接字符串
+select concat(&apos;南邮&apos;,&apos;通达&apos;) from dual;
+select &apos;南邮&apos;||&apos;通达&apos; from dual;</code></pre><h1 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h1><pre><code>--1. abs 取绝对值
+--2. ceil 向上取整
+--3. floor 向下取整
+--4. power 求幂
+--5. mod 取模(取余) 
+--6. round 四舍五入
+--7. trunc 截取小数位数
+select abs(-1999),
+        ceil(2.2),
+        floor(3.3),
+        power(2,3),
+        mod(5,2),
+        round(4.55),
+        trunc(10/3,2) from dual;</code></pre><h1 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h1><pre><code>-- 1. 返回两个日期之间的月份数
+select trunc(MONTHS_BETWEEN(&apos;04-11月-05&apos;,&apos;11-1月-01&apos;),1) from dual;
+-- 2. 返回在指定的日期上加或减指定的月份数
+select add_months(&apos;06-7月-19&apos;,-2) from dual;
+-- 3. 返回指定日期后的指定星期数的日期
+select next_day(&apos;06-7月-19&apos;,&apos;星期三&apos;) from dual;
+-- 4. 返回指定日期所在的月份的最后一天的日期
+select last_day(&apos;08-7月-19&apos;) from dual;
+-- 5. 按指定格式对日期进行四舍五入  
+-- &apos;YEAR&apos; 代表年   例如: &apos;03-2月-19&apos;,
+select round(to_date(&apos;03-7月-19&apos;),&apos;YEAR&apos;) from dual; 
+-- &apos;MONTH&apos; 代表月
+select round(to_date(&apos;16-7月-19&apos;),&apos;MONTH&apos;) from dual;
+-- &apos;DAY&apos; 代表星期   歪果仁 认为 一周的第一天使星期天 
+select round(to_date(&apos;03-7月-19&apos;),&apos;DAY&apos;) from dual;
+-- 6. 对日期按指定方式进行截断
+select trunc(to_date(&apos;06-9月-19&apos;),&apos;YEAR&apos;) from dual;
+select trunc(to_date(&apos;06-9月-19&apos;),&apos;MONTH&apos;) from dual;
+select trunc(to_date(&apos;06-9月-19&apos;),&apos;DAY&apos;) from dual;</code></pre><h1 id="多行函数-聚合函数-统计函数"><a href="#多行函数-聚合函数-统计函数" class="headerlink" title="多行函数(聚合函数,统计函数)"></a>多行函数(聚合函数,统计函数)</h1><pre><code>  --作用：对查询的数据进行统计
+--使用：select 多行函数名(字段名),多行函数名(字段名)..from 表名
+    --注意：多行函数不能和普通字段以及单行函数混用，除非分组
+      --max（字段名） 返回该字段的最大值
+      --min(字段名) 返回该字段的最小值
+      --sum(字段名) 返回该字段的和
+      --avg(字段名) 返回该字段的平均值
+      --count
+            --count(*) 返回表的记录数
+            --count(字段名) 返回非空值的数量
+            --count(distinct 字段名) 去除重复后的字段值的数量
+  select max(sal) 最高工资,
+          min(sal) 最低工资,
+          sum(sal) 工资总数,
+          trunc(avg(sal),2) 平均工资,
+          count(sal) 领工资人数 from emp;
 
-   15. 图形化工具远程连接</code></pre>
+  -- 注意:count()的参数可以写*,也可以写字段名,还
+  -- 可以写字段的序号,第一个字段序号是1,以此类推
+  -- count(某个字段)会自动过滤掉这个字段中的null值
+  -- 写字段名可读性优于写序号，性能优于 * 
+  select * from emp;
+  select count(*) from emp;  --14 , 说明有14个员工
+  select count(1) from emp;  --14
+  select count(comm) from emp;  -- 4个有奖金
+  select count(7) from emp;  -- 4个有奖金 
+  -- 去重后再count()
+  select count(distinct job) from emp;</code></pre><h1 id="转换函数"><a href="#转换函数" class="headerlink" title="转换函数"></a>转换函数</h1><pre><code>    --to_number(数值类型的字符):将字符转换为数值
+    --to_char(数值或者是日期):将数值或者日期转换为字符
+    --to_date(日期格式的字符)：将字符转换为日期
+------------------------------------------------------
+    -- 1. 字符串转换为数字
+    select to_number(&apos;123.28&apos;)+456 from dual;
+    -- 2. 数字转换字符number---&gt;char
+    --指定显示格式:
+           --9表示位置占位，例如999,999,999会将数字按照三个一组使用逗号隔开。
+           --L表示人民币符号，$表示美元符号
+           --0可以进行占位分组，但是如果真实数据位数不足，会使用0进行补位。
+                -- 1. 将数字转换为美元格式字符串
+                select to_char(98645769,&apos;$999,999,999&apos;) from dual
+                -- 2. 将数字转换为人民币格式字符串
+                select to_char(98645769,&apos;L999,999,999&apos;) from dual
+                -- 3. 填充0, 不足的部分依然显示为0
+                 select to_char(12345678,&apos;000,000,000,000.000&apos;) from dual
+    ---------------日期和字符的互转---------------------------
+    --一般使用方式：新增数据使用to_date(),查询数据使用to_char()
+        -- 因为数据库中存的是日期格式,我们查询的时候看的是字符串格式
+         --查询员工入职日期在82年后的信息
+         select * from emp where hiredate &gt;to_date(&apos;1982-01-01&apos;,&apos;yyyy-mm-dd&apos;)
+    -- 日期转换为字符
+        select hiredate 日期格式的日期,to_char(hiredate) 字符串格式的日期 from emp;</code></pre><h1 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h1><pre><code>-- 1. 对null 值进行转换
+-- 查询员工工资和奖金之和是多少
+select sal, comm, sal+nvl(comm,0) from emp;
+--nvl2()：nvl2(字段名，处理1，处理2)
+      --如果字段值不为null，则执行处理1，为null执行处理2
+--decode()：decode(字段名,值1，处理1，值2，处理2，值3，处理3,...,公共处理)
+      --如果字段的值和decode中的条件值相同则执行对象的处理。如果都没有则执行公共
+--练习
+    ---查询员工的工资信息
+    select ename,job,sal from emp;
+    --查询员工的薪水信息
+    select ename,job,sal+nvl(comm,0),sal+comm,sal from emp
+    select ename,job,nvl2(comm,sal+comm,sal) from emp
+    --显示员工的职称
+    select ename,job,decode(job,&apos;MANAGER&apos;,&apos;经理&apos;,&apos;PRESIDENT&apos;,&apos;董事长&apos;,&apos;SALESMAN&apos;,&apos;销售&apos;,&apos;普通员工&apos;) from emp;</code></pre><h1 id="分组查询和筛选"><a href="#分组查询和筛选" class="headerlink" title="分组查询和筛选"></a>分组查询和筛选</h1><pre><code>--关键字：group by 分组字段名,分组字段名....
+ --注意1：使用了分组后，在select语句中只允许出现分组字段和多行函数(聚合函数)。
+    -- 分组一般是用来做数据统计的
+    -- 每种职位中的最高薪水 max(sal)
+    select max(sal) 最高薪水 ,job 职位 from emp group by job;
+    -- 错误示范
+    select ename, job from emp  group by job;
+ --注意2：如果是多字段分组，则先按照第一字段分组，然后每个小组继续按照第二个字段继续分组，以此类推。
+    -- 统计各部门,各岗位有多少人
+    select count(empno), job,deptno from emp group by job,deptno;
+ --注意3：在where子句中不允许出现多行函数。
+    -- 统计各部门,各岗位有多少人,并显示人数在两个和以上的
+    select count(empno),job,deptno 
+        from emp 
+        -- where 条件必须在group by的上面
+        where deptno=20
+        group by job,deptno
+        -- 多行函数的条件判断使用having子句,必须写在group by的后面
+        having count(empno)&gt;=2;</code></pre><h1 id="数据库的增删改"><a href="#数据库的增删改" class="headerlink" title="数据库的增删改"></a>数据库的增删改</h1><pre><code>--注意：增加删除修改的数据SQL语句执行完毕后，不会立马进行数据的写入。
+       --还需要手动对数据进行提交，如果数据有问题还可以回滚
+--主键：非空唯一的字段可以设置为主键。
+      --在一张表中，某个字段的值是非空唯一的，将此字段设置为主键。
+      --主键的作用：唯一的标识一条数据。
+--增加数据
+      --insert into 表名[(字段名1,字段名2,字段名3...)] values(值1，值2，值3....);
+          --注意1：主键必须给值，允许为空的字段可以不给值。
+          --注意2：插入语句表名后跟的字段名为要赋值的字段，值和字段数量和顺序必须是一一对应的。
+          --注意3：如果是全字段插入，可以省略字段名部分 insert into 表名 values(值1，值2，.....)
+  --在部门中新增一个新的部门信息，信息内容为 编号：50，名称：LOL学院,地址：北京
+   --删除数据
+   --delete from 表名 删除表中的所有记录
+   --truncate table 表名  删除表中的所有记录，但是效率高于delete,比delete删的还要彻底,可以删除标识规范等
+   --delete from 表名 where 条件 删除指定的数据,只要符合条件就会删除
+   -- 将上面添加的部门删掉
+
+   --更新数据
+   --update 表名 set 字段名=新的值,字段名=新的值...(会将字段的值全部改为新的值)
+   --update 表名 set 字段名=新的值,字段名=新的值... where 条件(将符合条件的数据的字段改为新的值)
+   --删除操作和更新操作一定要记得加where 条件</code></pre><h1 id="数据的备份"><a href="#数据的备份" class="headerlink" title="数据的备份"></a>数据的备份</h1><pre><code>--注意：只会备份表结构和表的数据，约束不会备份。
+--表级别备份
+    --全部备份:create table 新的表名 as select * from 备份表名
+    create table emp_back as select * from emp;
+    select * from emp_back;
+    --部分备份: create table 新的表名 as select 字段名，字段名，...from  备份表名
+     create table emp_back_part as select empno,ename,sal from emp;
+     select * from emp_back_part;
+--数据整体插入
+    --insert into 插入表名 select * from 表名
+    --注意:查询语句结果的字段数据必须和插入表名的字段数量一致，类型要一致。</code></pre>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
@@ -469,12 +590,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>数据库day01</p>
+    <p><span class="copy-title">文章标题:</span>数据库day02</p>
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="SImon">SImon</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-07-29, 22:24:59</p>
-    <p><span class="copy-title">最后更新:</span>2019-07-29, 22:25:00</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/29/数据库day01/" title="数据库day01">http://yoursite.com/2019/07/29/数据库day01/</a>
+    <p><span class="copy-title">发布时间:</span>2019-07-30, 08:30:40</p>
+    <p><span class="copy-title">最后更新:</span>2019-07-30, 08:30:40</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/30/数据库day02/" title="数据库day02">http://yoursite.com/2019/07/30/数据库day02/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
